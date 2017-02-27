@@ -5,12 +5,12 @@ var exercise = {};
 var getTemp = function(row) {
     var time = parseInt(row.date);
     var year = Math.floor(time / 100);
-    month = time - (year * 100); // correct this - it is wrong
+    month = time - (year * 100) -1; // correct this January =0
     var date = new Date(year, month, 1); // assume its on 1st of the month
     return [date, Number(row.GISS)];
 };
 exercise.getDateTempSeries = function() {
-    return []; //  complete this using callback to getTemp
+    return exercise.data.map(getTemp); //  complete this using callback to getTemp
 };
 
 var run = function run() {
@@ -27,7 +27,7 @@ var run = function run() {
     }];
 
     // google requires 1st row to describe the data
-    exercise.dateT.unshift(firstRow);
+    exercise.dateT.unshift(firstRow);//add firstRow at the deginning
 
 
     var target = document.getElementById('chart_div');
