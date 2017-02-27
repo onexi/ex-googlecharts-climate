@@ -5,12 +5,12 @@ var exercise = {};
 var getTemp = function(row) {
     var time = parseInt(row.date);
     var year = Math.floor(time / 100);
-    month = time - (year * 100); // correct this - it is wrong
-    var date = new Date(year, month, 1); // assume its on 1st of the month
+    var month = time - (year * 100)-1; // correct this - it is wrong
+    var date = new Date(year, month, 1); // turns out that this is the way google uses the dates; could be different for different sources; assume its on 1st of the month
     return [date, Number(row.GISS)];
 };
 exercise.getDateTempSeries = function() {
-    return []; //  complete this using callback to getTemp
+    return exercise.data.map(getTemp); //  complete this using callback to getTemp
 };
 
 var run = function run() {
