@@ -18,7 +18,7 @@ function drawChart(dataset, chartType, target) {
 
         trendlines: {
             0: {
-                color: 'purple',
+                color: 'red',
                 lineWidth: 10,
                 opacity: 0.2,
                 type: 'polynomial',
