@@ -22,7 +22,7 @@ function drawChart(dataset, chartType, target) {
                 lineWidth: 10,
                 opacity: 0.2,
                 type: 'polynomial',
-                degree: 1,
+                degree: 1  ,
                 showR2: true,
                 visibleInLegend: true,
             }
