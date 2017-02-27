@@ -3,14 +3,15 @@ var exercise = {};
 //  build dataset
 // -------------------------------------
 var getTemp = function(row) {
-    var time = parseInt(row.date);
+    //var time = parseInt(row.date);
+    var time = (row.date);
     var year = Math.floor(time / 100);
-    month = time - (year * 100); // correct this - it is wrong
+    var month = time - (year * 100) - 1; // basically, you need to know what the input requires
     var date = new Date(year, month, 1); // assume its on 1st of the month
-    return [date, Number(row.GISS)];
+    return [date, (row.HAD)];
 };
 exercise.getDateTempSeries = function() {
-    return []; //  complete this using callback to getTemp
+    return exercise.data.map(getTemp); //  complete this using callback to getTemp
 };
 
 var run = function run() {
